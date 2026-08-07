@@ -3,8 +3,11 @@
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 A production-ready Nx monorepo for full-stack React apps powered by TanStack Start - type-safe file-based routing, streaming SSR, and server functions out of the box.
+
 <!-- BEGIN: nx-cloud -->
+
 🚀 If you haven't connected to Nx Cloud yet, [complete your setup here](https://cloud.nx.app/get-started). Get faster builds with remote caching, distributed task execution, and self-healing CI. [See how your workspace can benefit](#nx-cloud).
+
 <!-- END: nx-cloud -->
 
 ## Quick Start
@@ -50,7 +53,7 @@ tanstack-start-template/
       - router.tsx                 TanStack Router setup + getRouter()
       - client.tsx                 Browser entry point
       - ssr.tsx                    Server entry point (streaming SSR)
-    - vite.config.ts               Vite + TanStack Start plugin config
+    - vite.config.mts              Vite + TanStack Start plugin config
 - packages/
   - ui/                            Shared React UI component library
     - src/
@@ -91,7 +94,10 @@ Projects are tagged with `scope:` and `type:` tags. Add boundary rules in `nx.js
   "generators": {
     "@nx/enforce-module-boundaries": {
       "depConstraints": [
-        { "sourceTag": "type:app", "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"] }
+        {
+          "sourceTag": "type:app",
+          "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"]
+        }
       ]
     }
   }
@@ -109,6 +115,7 @@ npx nx graph
 ### TanStack Start + Vite Plugin
 
 The `@tanstack/react-start` Vite plugin wires up:
+
 - File-based routing via TanStack Router (auto-generates `routeTree.gen.ts`)
 - Streaming SSR with server-side rendering
 - Type-safe server functions (RPC)
@@ -130,15 +137,15 @@ Learn more: [https://nx.dev/nx-cloud](https://nx.dev/nx-cloud)
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Build system | Nx 23 |
-| Framework | TanStack Start 1.x |
-| Router | TanStack Router (file-based) |
-| Bundler | Vite 8 + Rolldown |
-| Language | TypeScript 6.0 (strict) |
-| Runtime | Node.js (SSR) |
-| Package manager | npm workspaces |
+| Layer           | Technology                   |
+| --------------- | ---------------------------- |
+| Build system    | Nx 23                        |
+| Framework       | TanStack Start 1.x           |
+| Router          | TanStack Router (file-based) |
+| Bundler         | Vite 8 + Rolldown            |
+| Language        | TypeScript 6.0 (strict)      |
+| Runtime         | Node.js (SSR)                |
+| Package manager | npm workspaces               |
 
 ---
 
